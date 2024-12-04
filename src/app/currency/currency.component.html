@@ -1,0 +1,32 @@
+<div class="container-fluid bg-light" style="height: 100vh;">
+    <div class="row align-items-center" style="height: 100%;">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 shadow-lg p-4">
+            <div class="text-center">
+                <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Currency Converter</h3>
+            </div>
+            <input type="text" placeholder="Enter amount" [(ngModel)]="amount" class="form-control">
+            <div class="row">
+                <div class="col-6 my-3">
+                    <select class="form-select" [(ngModel)]="fromCode">
+                        <option value="">Choose from currency code</option>
+                        <option *ngFor="let code of currencyCode">{{code}}</option>
+                    </select>
+                </div>
+                <div class="col-6 my-3">
+                    <select class="form-select" [(ngModel)]="toCode">
+                        <option value="">Choose to currency code</option>
+                        <option *ngFor="let code of currencyCode">{{code}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="text-center">
+                <button (click)="getResult()" class="btn btn-outline-dark" style="width: 150px;">Find</button>
+            </div>
+            <div class="text-center" *ngIf="result != 0">
+                <p class="card-text"><small class="text-body-secondary">{{amount}} {{fromCode}} in {{toCode}} equals to {{result}}</small></p>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
